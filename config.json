@@ -10,7 +10,7 @@
       "projectPath":"/opt/app/home.io",
       "commands":["cd /opt/app/home.io","git pull"],
       "pusher":[],
-      "passowrd":"123"
+      "password":"123"
     }
   }
 }
