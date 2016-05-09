@@ -1,0 +1,11 @@
+{
+  "secret":"jiangwei123",
+  "webpath":"/",
+  "port":1337,
+  "projects":{"home.io":{
+      "projectPath":"/opt/app/home.io",
+      "commands":["cd /opt/app/home.io","git pull"],
+      "pusher":[]
+    }
+  }
+}
