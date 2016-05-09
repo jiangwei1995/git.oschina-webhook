@@ -9,8 +9,9 @@ var password = '123'; //提交密码
 var releasewords = 'release'; //发布关建字
 
 //日志
-fs = require('fs'),
-    accessLogfile = fs.createWriteStream('./access.log', {flags: 'a'}), //访问日志
+var fs = require('fs'),
+accessLogfile = fs.createWriteStream('./logs/access.log', {flags: 'a'}),
+errorLogfile = fs.createWriteStream('./logs/error.log', {flags: 'a'});
 
 
 // all environments
