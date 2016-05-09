@@ -23,9 +23,9 @@ app.use(bodyParser.urlencoded({
 
 app.post('/', function (req, res, next) {
 		var hook = JSON.parse(req.body.hook);
-		var project = JSON.parse(req.query.project);
+		var project = req.query.project;
 
-		var pusher = {"name":hook.user.name,"email":hook.user.email}
+		var pusher = {"name":hook.push_data.user.name,"email":hook.push_data.user.email}
         ,id = hook['push_data'].commits.id
         ,action = hook.hook_name;
         accessLogfile.write(`${new Date()} -- 提交人：${pusher.name} -- 执行：${action}  -- 任务id：${id}\n`);

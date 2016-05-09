@@ -6,6 +6,10 @@
       "projectPath":"/opt/app/home.io",
       "commands":["cd /opt/app/home.io","git pull"],
       "pusher":[]
+    },"home":{
+      "projectPath":"/opt/app/home.io",
+      "commands":["cd /opt/app/home.io","git pull"],
+      "pusher":[]
     }
   }
 }
