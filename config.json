@@ -7,8 +7,8 @@
       "commands":["cd /opt/app/etd/home.io","git pull"],
       "pusher":[]
     },"home":{
-      "projectPath":"/opt/app/etd/java-web",
-      "commands":["cd /opt/app/etd/java-web","git pull"],
+      "projectPath":"/opt/app/etd/java-app",
+      "commands":["cd /opt/app/etd/java-app","git pull"],
       "pusher":[],
       "password":"123"
     }
