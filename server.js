@@ -27,15 +27,18 @@ app.post(config.webpath, function (req, res, next) {
 				var project = checkProject(project);
 				if(!checkPusher(project, pusher)){
 					ThrowError("用户认证失败");
+          return ;
 					res.send(500);
 				};
 				if(project.password!=hook.password){
 					ThrowError("密码错误失败");
+          return ;
 					res.send(500);
 				}
         exec(project.commands.join(' && '), function(err, out, code) {
           if (err instanceof Error) {
     	      ThrowError(err.message);
+            return ;
             res.send(500);
           }
           accessLogfile.write(`${new Date()} -- 提交人：${pusher.name} -- 执行：${action}  -- 任务id：${id} -- 状态：成功\n`);
