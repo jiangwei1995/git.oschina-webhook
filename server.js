@@ -15,12 +15,7 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }));
 
-app.post('/deploy/', function (req, res, next) {
-	 async.waterfall([
-		 function(callback){
-
-		 }
-	 ])
+app.post(config.webpath, function (req, res, next) {
 		var hook = JSON.parse(req.body.hook);
 		var project = req.query.project;
 
@@ -41,10 +36,9 @@ app.post('/deploy/', function (req, res, next) {
         exec(project.commands.join(' && '), function(err, out, code) {
           if (err instanceof Error) {
     	      ThrowError(err.message);
+            res.send(500);
           }
           accessLogfile.write(`${new Date()} -- 提交人：${pusher.name} -- 执行：${action}  -- 任务id：${id} -- 状态：成功\n`);
-          //process.stderr.write(err)
-          //process.stdout.write(out)
         })
 				res.send(200)
 })
@@ -80,29 +74,6 @@ function ThrowError(message){
     });
 }
 
-// app.post('/deploy/', function (req, res) {
-// 	var hook = JSON.parse(req.body.hook);
-//     var now = new Date();
-//     var time = now.getFullYear() + '-' + now.getMonth() + '-' + now.getDate() + ' '
-//         + now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
-//
-// 	if(hook.password != password){
-// 		res.json(200, {message: 'password fail'});
-// 	}else{
-//         var lastcommit = hook.push_data.commits[hook.push_data.commits.length -1];
-//         console.log(lastcommit ,lastcommit.message.indexOf(releasewords));
-//         if(lastcommit.message.indexOf(releasewords) >= 0)//这里意为：如果最后的commit包含"release"则进行自动发布。
-//         {
-//             exec('sh ./deploy.sh ' + req.query.p,function(error, stdout, stderr){console.log(error, stdout, stderr);});
-//             accessLogfile.write('release for Projecp' + req.query.p + time +  ' ' + lastcommit.message+  ' ' + lastcommit.author.name + '\n');
-//             res.json(200, {message: 'Git Hook received!'});
-//         }else{
-//             accessLogfile.write('Skip release ' + time +  ' ' + lastcommit.message+  ' ' + lastcommit.author.name + '\n');
-//             res.json(200, {message: 'Skip release'});
-//         }
-// 	}
-// });
-
 http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+  console.log('服务器启动成功监听端口:' + app.get('port'));
 });

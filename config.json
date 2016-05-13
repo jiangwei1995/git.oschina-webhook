@@ -1,12 +1,7 @@
 {
-  "secret":"jiangwei123",
   "webpath":"/",
   "port":5002,
-  "projects":{"home.io":{
-      "projectPath":"/opt/app/etd/home.io",
-      "commands":["cd /opt/app/etd/home.io","git pull"],
-      "pusher":[]
-    },"home":{
+  "projects":{"java-app":{
       "projectPath":"/opt/app/etd/java-app",
       "commands":["cd /opt/app/etd/java-app","git pull"],
       "pusher":[],
