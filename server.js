@@ -2,6 +2,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     exec = require("child_process").exec,
 		http = require('http'),
+    _ = require('lodash');
 		config = require('./config'),
 		fs = require('fs'),
 		accessLogfile = fs.createWriteStream('./logs/access.log', {flags: 'a'}),
