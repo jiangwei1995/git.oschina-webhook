@@ -62,7 +62,7 @@ function  checkPusher(project, pusher){
     ThrowError('没有配置项目')
   if (typeof project.pusher != 'object')
     ThrowError('没有配置提交者')
-  if (typeof project.pusher.length > 0){
+  if (project.pusher.length > 0){
     var result =  _.findIndex(project.pusher,pusher);
     if(result<0){
       return false;
